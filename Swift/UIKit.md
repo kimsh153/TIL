@@ -7,5 +7,3 @@
 ```swift
 import UIKit
 ```
-
-
