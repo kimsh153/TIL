@@ -7,3 +7,5 @@
 ```swift
 import UIKit
 ```
+
+참고자료: https://developer.apple.com/documentation/uikit/
