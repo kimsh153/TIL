@@ -9,6 +9,9 @@ VStack{
   Text("Hello")
   Text("Hello")
 }
+// Hello
+// Hello
+// Hello
 ```
 * VStack의 텍스트 크키가 다르면 중앙으로 텍스트가 정렬됩니다
 > HStack은 가로로 스택을 쌓는 것 입니다
@@ -18,6 +21,7 @@ HStack{
   Text("Hello")
   Text("Hello")
 }
+// Hello Hello Hello
 ```
 ### alignment로 정렬 기준을 설정할 수 있습니다.
 ```swift
