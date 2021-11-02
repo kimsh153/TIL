@@ -32,5 +32,13 @@ VStack(alignment: .leading)
 VStack(spacing: 20)
 ```
 
+> ZStack은 뷰를 겹쳐서 표현할때 사용합니다
+```swift
+ZStack{
+      Color.yellow.edgesIgnoringSafeArea(.all)
+      Color.red.frame(width:300,height: 300)
+      Color.blue.frame(width:200,height: 200)
+}
+```
 
 자료: https://medium.com/harrythegreat/swiftui-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-3%ED%8E%B8-%EC%8A%A4%ED%83%9D%EB%8B%A4%EB%A3%A8%EA%B8%B0-e385bff93aa9
