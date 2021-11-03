@@ -40,5 +40,18 @@ ZStack{
       Color.blue.frame(width:200,height: 200)
 }
 ```
+### Spacer()는 선언하면 별도의 옵션을 주지 않는 이상 가능한 모든 영역을 차지하게 됩니다
+```swift
+VStack{
+  Text("Hello")
+  Spacer()
+// 'Hello       '
+```
+```swift
+VStack {
+  Spacer()
+  Text("Hello")
+// '       Hello'
+```
 
 자료: https://medium.com/harrythegreat/swiftui-%ED%8A%9C%ED%86%A0%EB%A6%AC%EC%96%BC-3%ED%8E%B8-%EC%8A%A4%ED%83%9D%EB%8B%A4%EB%A3%A8%EA%B8%B0-e385bff93aa9
