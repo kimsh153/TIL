@@ -16,4 +16,6 @@
 
 <img width="558" alt="MVVM" src="https://user-images.githubusercontent.com/81547954/140432641-7eea15ca-0727-43cb-afe5-5f158ee8931c.png">
 
-
+### 기존의 View는 단순히 유저 인터페이스를 표시하기 위한 로직만을 담당하고, 그외에는 매소드 호출 정도만 있는게 이상적이다.
+### ViewModel은 기존의 UIKit을 import 할 필요도 없이 데이터 update 및 뷰 요소를 업데이트 한다.
+### Model은 데이터 구조를 갖고 있다.
