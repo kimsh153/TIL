@@ -20,3 +20,15 @@ extension SomeType {
   // new functionality to add to SomeType goes here
 }
 ```
+``extension``은 하나 이상의 프로토콜을 만들어 기존 타입에 적용시켜 확장합니다.
+```swift
+extension SomeType : SomeProtocol, AnotherProtocol {
+  // implementation of protocol requirements goes here
+}
+```
+```
+기존 타입에 새로운 기능을 추가하기 위해 확장을 정의한다면, 새로운 기능은 기존 타입의 인스턴스에서 가능하다.
+심지어 확장이 정의되기 전에 만들어진다.
+```
+
+#### 출처 : http://minsone.github.io/mac/ios/swift-extensions-summary
