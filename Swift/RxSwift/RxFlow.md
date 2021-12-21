@@ -45,10 +45,15 @@ RxFlow는 Reactive Flow Coordinator 패턴을 기반으로 하는 iOS 애플리�
 ![image](https://user-images.githubusercontent.com/81547954/146878411-5ad0d58c-4027-4e32-b56f-74ea9278bb8c.png)
 
 1.`Flow`는 Controller의 생성과 의존성 주입 그리고 화면 이동처리 등의 개발자가 구현해 주어야되는 핵심 공간이 되는 부분입니다.
+
 2.`Step`은 enum 입니다. 어떤 화면으로 이동할거야의 상태 값의 정의 부분입니다.
+
 3.`Stepper`는 2번의 Step을 발생시킬 수 있는 Protocol(Interface)입니다. 원하는 인스턴스에 종속성을 부여하면 됩니다.
+
 4.`Presentable`은 Root가 되는 UIViewController라고 생각하면 됩니다. Coordinator도 무엇을 컨트롤해야되는지, 알아야 제어할것입니다.
+
 5.`Flowable`은 Coordinator에게 구체적으로 4번의 Presentable과 3번의 Stepper가 어떻게 조합되고 역할을 하는 지를 알려주는 것을 설정해 줍니다.
+
 6.`Coordinator`는 이 조합들을 잘 섞어주는 역할만을 하는 조정자,진행자의 역할만 합니다.
 
 ![image](https://user-images.githubusercontent.com/81547954/146878471-167a42ad-8496-481b-8379-d256e407c4a7.png)
