@@ -23,8 +23,31 @@ Alamofire의 단점을 보완한 네트워킹 작업 라이브러리
 * Network Layer를 템플릿화 하여 재사용성을 높힘
 * 개발자가 request, reponsse에만 신경쓰도록 해줌
 
+### Moya 설치
+CocoaPods으로 설명하겠습니다.
+```swift
+pod 'Moya'
+
+또는
+
+pod 'Moya', '~> 15.0'
+
+또는
+
+pod 'Moya/RxSwift', '~> 15.0'
+
+또는
+
+pod 'Moya/ReactiveSwift', '~> 15.0'
+
+또는
+
+pod 'Moya/Combine', '~> 15.0'
+```
 
 ### Moya 코드 작성
+
+`Moya`에서 제공해주는 <a href="https://github.com/Moya/Moya/blob/master/docs/Examples/Basic.md">템플릿</a>을 이용하면 좋습니다.
 
 `Moya`는 `MoyaProvider<TargetType>`으로 request를 수행하기 때문에, 위에서 정의한 API가 `TargetType` 프로토콜을 구현해야합니다.
 
@@ -36,3 +59,7 @@ extension을 만들어 `TargetType`프로토콜을 체택하면, 아래와 같�
 * sampleData: 테스트용 Mock Data
 * task: request에 사용될 파라미터 .requestPlain: no param, .requestParametrs(parameter:,encoding:)
 * headers:HTTP Header
+
+
+
+### 참고 : https://velog.io/@dlskawns96/iOS-Moya%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9-Swift-Http-%ED%86%B5%EC%8B%A0
