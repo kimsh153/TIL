@@ -33,9 +33,20 @@ TableViewCell을 클릭하면 호출되는 **didSelectRowAt**메소드입니다.
 단 3줄입니다.
 
 **1.객체를 가져옵니다.**
+<br>
 **2.ViewController를 만듭니다.**
+<br>
 **3.ViewController를 보여줍니다.**
 
 간단한 앱에서는 아무 문제없이 완벽하게 동작합니다.
+
+하지만 앱이 복잡해짐에 따라, ViewController가 새로운 방식 또는 새로운 위치에서 사용될 수 있습니다.
+
+위에서 만든 DetailViewController가 저렇게 한번만 쓰이는게 아니라 다른 곳에서도 만들어지고 다시 보여질 수 도 있는 경우도 있기 때문입니다.
+
+복잡한 앱에서 위 코드를 다시 살펴보기로 하겠습니다
+
+```swift
+func tableView(_ tableiView: UITableView, didSelectRowAt indexPath: 
 
 참고 : https://zeddios.medium.com/coordinator-pattern-bf4a1bc46930
