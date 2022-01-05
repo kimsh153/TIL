@@ -47,6 +47,31 @@ TableViewCell을 클릭하면 호출되는 **didSelectRowAt**메소드입니다.
 복잡한 앱에서 위 코드를 다시 살펴보기로 하겠습니다
 
 ```swift
-func tableView(_ tableiView: UITableView, didSelectRowAt indexPath: 
+func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    let object = self.dataSource[indexPath]
+    let detailViewController = SKDetailViewController(with: object)
+    self.navigationController?.present(detailViewController, animated: true, completion: nil)
+}
+```
+
+**1.객체를 가져옵니다.**
+-> 첫번째 줄은 괜찮습니다. datasource는 viewController의 논리적인 자식이며, 참조해야하는 객체를 요청하고 있습니다.
+
+**2.ViewController를 만듭니다.**
+-> 여기서부터 문제가 생기기 시작합니다. ViewController는 flow의 다음 단계를 "**인식**"하게 됩니다.
+
+**3.ViewController를 보여줍니다.**
+-> 여기서부터는 완전히 벗어나는 곳입니다. ViewController는 이제 부모까지 잡습니다.
+**부모 ViewController에게 해야할 일에 대한 정확한 메세지를 보내고 있습니다.**
+**(한마디로 부모에게 이래라 저래라 하고 있다는 겁니다.)**
+
+더 큰 문제는 이러한 flow logic이 여러 **ViewController에 분산**되어 있을 수 있다는 겁니다.
+
+Khanlou는 이렇게 생각했습니다.
+
+> Khanlou : ViewController 기본 클래스는 UI로 시작되며
+> (UIViewController), View객체이고, 사용자 흐름을 처리하는것은 범위(scope)를 벗어난다!
+
+Khanlou는 ViewController를 높은 수준의 객체로 관리하게 되면 많은 이점을 얻는다는 것을 알게 됩니다.
 
 참고 : https://zeddios.medium.com/coordinator-pattern-bf4a1bc46930
