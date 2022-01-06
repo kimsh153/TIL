@@ -110,9 +110,42 @@ DI는 의존성을 분리시켜 사용합니다.
 ```
 (출처 : 위키백과) https://ko.wikipedia.org/wiki/%EC%9D%98%EC%A1%B4%EA%B4%80%EA%B3%84_%EC%97%AD%EC%A0%84_%EC%9B%90%EC%B9%99
 
-상위계층이 하위계층에 의존하게 되는 상황에서 
+상위계층이 하위계층에 의존하게 되는 상황에서 protocol을 이용하여 의존성을 낮출 수 있습니다.
 
+```swift
+import UIKit
 
+/// 의존 관계를 독립시킬 인터페이스
+protocol DependencyIndependentInterface : AnyObject {
+    var number : Int { get set }
+}
 
+/// 그냥 평범하지만 위의 인터페이스에 의존관계가 있는 클래스
+class AClass : DependencyIndependentInterface {
+    var number = 1
+}
+
+/// AClass와 의존관계가 있는 클래스
+class BClass {
+    /// 내부에 변수로 AClass를 사용할 것임
+    var internalVariable : DependencyIndependentInterface
+    
+    init(WithExternalVariable variable : DependencyIndependentInterface) {
+        // 외부에서 AClass 객체를 받습니다.
+        self.iternalVariable = variable
+    }
+}
+
+/// 외부에서 AClass 를 BClass에 주입합니다.
+/// 제어의 주체가 외부에 있습니다.
+let b = BClass(WithExternalVariable : AClass())
+print(b.internalVariable.number)
+
+```
+
+이렇게 하면 제어의 주체가 Protocol(Interface)에게 있습니다.
+
+### IOC
+`IOC`는 `Inversion Of Control`의 약어이며, 제어의 주제가 역적되는 패턴입니다.
 
 #### 참고 : https://medium.com/@jang.wangsu/di-dependency-injection-%EC%9D%B4%EB%9E%80-1b12fdefec4f
