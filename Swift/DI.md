@@ -147,5 +147,9 @@ print(b.internalVariable.number)
 
 ### IOC
 `IOC`는 `Inversion Of Control`의 약어이며, 제어의 주제가 역적되는 패턴입니다.
+* Inversion Of Control : 제어 반전
+
+### IOC Container
+IOC Container는 말 그대로 IOC를 구현하는 프레임워크가 컨테이너입니다.
 
 #### 참고 : https://medium.com/@jang.wangsu/di-dependency-injection-%EC%9D%B4%EB%9E%80-1b12fdefec4f
