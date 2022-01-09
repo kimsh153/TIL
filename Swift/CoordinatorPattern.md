@@ -74,4 +74,24 @@ Khanlou는 이렇게 생각했습니다.
 
 Khanlou는 ViewController를 높은 수준의 객체로 관리하게 되면 많은 이점을 얻는다는 것을 알게 됩니다.
 
+이 높은 수준의 객체의 역할은 모든 ViewController를 모으고(marshal)관리하는 것입니다.
+
+Khanlou는 이 높은 수준의 객체를 **Coordinators 또는 Directors**라고 부르기로 합니다.
+
+그리고 이 패턴을 제대로 실행하려면 전체 앱을 direct하는 high-level coordinator가 필요하다고 합니다.
+
+**AppDelegate(SceneDelegate)는 AppCoordinator를 유지하며, 모든 Coordinator에는 일련의 하위 Coordinator가 있습니다.**
+
+더 자세한 내용은
+
+<a href="https://khanlou.com/2015/01/the-coordinator/">The Coordinator</a>
+
+<a href="https://khanlou.com/2015/10/coordinators-redux/">Coordinators Redux</a>
+
+를 참고하세요
+
+### Coordinator가 훌륭한 이유
+**1. 각 ViewController의 고립.**
+
+
 참고 : https://zeddios.medium.com/coordinator-pattern-bf4a1bc46930
