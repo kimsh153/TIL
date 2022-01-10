@@ -91,7 +91,32 @@ Khanlou는 이 높은 수준의 객체를 **Coordinators 또는 Directors**라�
 를 참고하세요
 
 ### Coordinator가 훌륭한 이유
-**1. 각 ViewController의 고립.**
+**1.각 ViewController의 고립.**
 
+ViewController의 데이터를 표시하는 방법 이외에는 아무것도 모르며, 어떤일이 발생할 때마다 대리자(Delegate)에게 알리지만 Delegate가 누군지는 알 수 없습니다.
 
-참고 : https://zeddios.medium.com/coordinator-pattern-bf4a1bc46930
+예전같았으면 ViewController에서 분기문을 통해 분기했어야 한다면 이제는 ViewController가 조건을 검사할 필요가 없어졌습니다.
+
+**2.ViewController의 재사용**
+
+ViewController는 어떤 context로 표시될지 버튼이 어떤 용도로 사용될지에 대해 아무것도 가정하지 않고 있습니다.
+
+앱의 iPad 버전을 작성하는 경우 Coordinator만 교체해야하며 모든 ViewController를 재사용 할 수 있습니다.
+
+**3.앱의 모든 작업과 하위 작업은 전용 캡슐화 방법을 제공.**
+
+**4.Coordinator는 display-binding을 side effects와 분리.**
+
+ViewController를 표시할 때 ViewController가 데이터를 엉망으로 만들지 여부에 대해 걱정할 필요가 없어집니다.
+
+읽기 및 디스플레이어만 할 수 있으며 데이터를 쓰거나 손상시키지 않습니다.
+
+* side effects : 어떤 함수를 호출했을 때, 그 함수의 반환값 이외에 호출된 함수 밖에서 프로그램의 상태변화가 발생하면 이를 Side Effect라합니다. 
+
+**5.Coordinator는 완전히 제어할 수 있는 객체.**
+
+viewDidLoad가 호출 될 때 까지 기다리지 않고 전적으로 show를 제어할 수 있습니다.
+
+호출을 받는 대신 호출을 시작합니다.
+
+참고 : https://zeddios.medium.com/coordinator-pattern-bf4a1bc46930, <br> https://mike123789-dev.tistory.com/entry/%ED%95%A8%EC%88%98%ED%98%95-%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%B0%8D%EC%97%90-%EB%8C%80%ED%95%98%EC%97%ACfeat-Swift
