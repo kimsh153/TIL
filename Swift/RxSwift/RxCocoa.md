@@ -23,4 +23,22 @@
 
 ### Binder
 
-### 참고 :  <br> 1. https://velog.io/@hansangjin96/iOS-RxCocoa%EB%9E%80<br> 2.https://duwjdtn11.tistory.com/628
+Binder는 ObserverType을 따릅니다
+
+Binder는 옵저버 타입으로 3가지 특징이 있습니다.
+
+첫번째로 반드시 메인스케쥴러에서 실행됩니다
+
+두번째로 에러 이벤트를 따로 방출하지 않고 로그로만 출력됩니다
+
+세번째로는 옵저버타입이기 때문에 새로운 값을 전달할 수 있지만 구독자를 추가할 수는 없습니다
+
+### Bind
+
+Binder Observer를 사용해서 UI와 Observable을 하나로 묶는 행위입니다
+
+쉽게 설명하면 Observable이 이벤트를 방출하고 subscribe를 통해 관찰을 했습니다
+
+그런데 bind는 옵저버블과 관찰하는 옵저버를 그냥 하나로 묶어버리는 것입니다
+
+### 참고 :  <br> 1. https://velog.io/@hansangjin96/iOS-RxCocoa%EB%9E%80<br> 2. https://duwjdtn11.tistory.com/628 <br> 3. https://fomaios.tistory.com/entry/RxCocoa-bind%EB%9E%80
