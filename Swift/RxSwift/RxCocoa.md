@@ -41,4 +41,22 @@ Binder Observer를 사용해서 UI와 Observable을 하나로 묶는 행위입�
 
 그런데 bind는 옵저버블과 관찰하는 옵저버를 그냥 하나로 묶어버리는 것입니다
 
+### Traits
+
+Traits는 UI 처리에 특화된 Observable 입니다.
+RxCocoa가 제공하는 Traits는 4가지가 있습니다
+
+* ControlProperty : 컨트롤에 data를 binding 하기 위해 사용합니다
+* ControlEvent : 컨트롤의 event를 수신하기 위해 사용합니다
+* Driver : error를 방출하지 않고 메인스레드에서 처리됩니다
+* Signal : Driver와 거의 동일하나 자원을 공유하지 않습니다.
+
+RxCocoa에서 Traits는 4가지 특징을 갖습니다
+
+* error를 방출하지 않습니다
+* 메인 스케줄러에서 observe 됩니다
+* 메인 스케줄러에서 subscribe 됩니다
+* Signal을 제외한 나머지 Traits들은 자원을 공유합니다
+
+
 ### 참고 :  <br> 1. https://velog.io/@hansangjin96/iOS-RxCocoa%EB%9E%80<br> 2. https://duwjdtn11.tistory.com/628 <br> 3. https://fomaios.tistory.com/entry/RxCocoa-bind%EB%9E%80
