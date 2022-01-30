@@ -10,4 +10,11 @@ UIView.layoutSubviews() 또는 UIViewController.viewDidLayoutSubviews() 내부�
 을 업데이트해야합니다.
 ```
 
-### 참고 : https://zeddios.tistory.com/1243
+### PinLayout의 성능
+
+![benchmark_comparison_all_small](https://user-images.githubusercontent.com/81547954/151690924-ce8c5205-a8cb-4292-a91f-5658d27e68d5.png)
+
+PinLayout은 수동 레이아웃보다 빠르거나 같으며 자동 렝이아웃보다 8배에서 12배 빠릅니다.
+
+
+### 참고 : https://zeddios.tistory.com/1243, https://github.com/layoutBox/PinLayout
