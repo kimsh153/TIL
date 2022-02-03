@@ -22,4 +22,19 @@
 
 * 렌더링 시간이 AutoLayout의 비해 훨씬 빠른것을 볼 수 있습니다
 
-### 참고 : https://github.com/layoutBox/FlexLayout, https://colinch4.github.io/2021-05-14/FlexLayout/
+### 사용법
+<hr>
+
+### CocoaPods
+
+```
+pod 'FlexLayout'
+```
+
+FlexLayout를 사용하는 단계는 2단계로 나눠집니다.
+
+1. **Container를 setup한다.**
+
+2. **Container를 Layout한다.**
+
+### 참고 : https://github.com/layoutBox/FlexLayout, https://colinch4.github.io/2021-05-14/FlexLayout/, https://zeddios.tistory.com/1251
