@@ -8,6 +8,8 @@ Hero는 화면전환 애니메이션 라이브러리입니다
 
 출처 : https://github.com/HeroTransitions/Hero
 
+Hero는 Keynote의 **Magic Move**와 유사합니다.
+
 ### 설치법
 
 **Cocoapod**
