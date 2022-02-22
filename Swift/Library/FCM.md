@@ -13,7 +13,7 @@ FCM(FirebaseCloudMessaging)은 파이어베이스 클라우드 메시징 라이�
 pod 'Firebase/Messagin'
 ```
 #### Apple 프로젝트에 Firebase 추가
-Apple 프로젝트에 Firebase를 추가합니다
+<a href="https://firebase.google.com/docs/ios/setup?authuser=0">Apple 프로젝트에 Firebase를 추가</a>합니다
 
 #### APN 인증 키 업로드
 
