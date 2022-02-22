@@ -4,7 +4,7 @@
 
 SideMenu는 사이드메뉴를 쓸때 도움을 주는 라이브러리입니다
 
-아래와같이 SideMenu를 꺼낼 수 있습니다
+아래와 같이 SideMenu를 꺼낼 수 있습니다
 
 |Slide Out|Slide In|Dissolve|Slide In + Out|
 |------|---|---|---|
