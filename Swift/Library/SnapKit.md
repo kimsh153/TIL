@@ -11,4 +11,11 @@
 
 코드가 짧아지는걸 볼 수 있습니다. 그리고 더 간단한게 auto layout을 설정할 수 있습니다.
 
+### 설치법
+
+**Cocoapod**
+```swift
+pod 'SnapKit'
+```
+
 ### 출처 : https://snapkit.io/
