@@ -60,6 +60,12 @@ extension을 만들어 `TargetType`프로토콜을 체택하면, 아래와 같�
 * task: request에 사용될 파라미터 .requestPlain: no param, .requestParametrs(parameter:,encoding:)
 * headers:HTTP Header
 
+### 설치법
 
+**Cocoapod**
+
+```
+pod 'Moya'
+```
 
 ### 참고 : https://velog.io/@dlskawns96/iOS-Moya%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9-Swift-Http-%ED%86%B5%EC%8B%A0
