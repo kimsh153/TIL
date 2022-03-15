@@ -32,4 +32,11 @@ Combine은 RxSwift라고 생각하시면 편합니다
 
 Combine은 Asynchronous(비동기) 프로그래밍을 더 쉽고 안전하게 할 수 있게 해줍니다
 
+애플은 Asynchronous 프로그래밍을 이미 다음과 같은 것들에서 사용 중입니다.
+* NotificationCenter(알림 센터)
+* Delegate pattern
+* Grand Central Dispatch
+* Closures(클로저)
+
+
 ### 참고 : https://www.hohyeonmoon.com/blog/combine-introduction/
