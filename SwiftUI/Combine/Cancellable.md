@@ -10,11 +10,11 @@
 
 `cancel()` 을 호출하면 할당 된 모든 리소스가 해제됩니다
 
-## AnyCancellabel
+## AnyCancellable
 
-AnyCancellabel?
+AnyCancellable?
 
-갑자기 왜? **AnyCancellabel**로 넘어가지 라고 하실 수도 있습니다
+갑자기 왜? **AnyCancellable**로 넘어가지 라고 하실 수도 있습니다
 
 하지만! `Sink`를 공부해 보신분들은 다들 한번 쯤 보셨을거라고 생각이 드는데요
 
@@ -24,8 +24,12 @@ AnyCancellabel?
 
 `Sink의 result`에서 보셨을 겁니다
 
-그리고 AnyCancellabel이 Cancellabel을 프로토콜로 채택하는 class여서 같이 배워보려고 합니다
+그리고 `AnyCancellable` 이 Cancellabel을 프로토콜로 채택하는 `class` 여서 같이 배워보려고 합니다
 
-AnyCancellabel은 취소 되었을 때, 제공된 closure를 실행하는 type-erasing cancellable object입니다
+`AnyCancellable` 은 **취소** 되었을 때, **제공된 closure를 실행**하는 `type-erasing cancellable object` 입니다
+
+**Subscriber 구현**에서는 이 타입을 사용해서 **caller가 publisher를 취소** 할 수 있지만, **Subscription 객체를 사용하여 item을 요청** 할 수 없는 **"cancellation token"** 을 제공할 수 있습니다
+
+`AnyCancellable` 인스턴스는 `deinitialized` 될 때 자동으로 cancel()을 호출합니다
 
 ### 참고 : https://zeddios.tistory.com/981, https://milyo-codingstories.tistory.com/46
