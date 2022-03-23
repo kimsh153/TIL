@@ -22,3 +22,20 @@
 * ``Map`` : Observable이 배출한 항목에 함수를 적용한다.
 * ``Scan`` : Observable이 배출한 항목에 연속적으로 함수를 적용하고 실행한 후 성공적으로 실행된 함수의 리턴 값을 발행한다.
 * ``Window``: 정기적으로 Observable의 항목들을 더 작은 단위의 Observable 윈도우로 나눈 후에, 한번에 하나씩 항목들을 발행하는 대신 작게 나눠진 윈도우 단위로 항목들을 배출한다.
+
+<hr>
+
+### Observable 필터링
+* `Debounce` 특정 시간 범위가 다른 항목을 내보내지 않고 경과한 경우에만 Observable에서 항목을 내보냅니다.
+* `Distinct` Observable에서 방출하는 중복 항목 억제
+* `ElementAt` Observable이 내보낸 항목 n 만 내보냅니다.
+* `Filter` 술어 테스트를 통과한 Observable의 항목만 내보냅니다.
+* `First` Observable에서 첫 번째 항목 또는 조건을 충족하는 첫 번째 항목만 내보냅니다.
+* `IgnoreElements` Observable에서 항목을 내보내지 않지만 종료 알림을 미러링합니다.
+* `Last` Observable이 내보낸 마지막 항목만 내보냅니다.
+* `Sample` 주기적인 시간 간격 내에서 Observable이 방출한 가장 최근 항목을 방출합니다.
+* `Skip` Observable 이 내보낸 처음 n개의 항목을 억제합니다.
+* `SkipLast` Observable 이 내보낸 마지막 n 개 항목을 억제합니다.
+* `Take` Observable 이 내보낸 처음 n 개 항목만 내보냅니다.
+* `TakeLast` Observable 이 내보낸 마지막 n 개 항목만 내보냅니다.
+
