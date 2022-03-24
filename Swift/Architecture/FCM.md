@@ -1,8 +1,8 @@
-### FCM
+# FCM
 
 ### FCM?
 
-FCM(FirebaseCloudMessaging)은 파이어베이스 클라우드 메시징 라이브러리입니다.
+FCM(FirebaseCloudMessaging)은 메시지를 빌드, 전송, 수신하는 다음 구성요소 집합을 사용합니다
 
 ### 사용법
 
