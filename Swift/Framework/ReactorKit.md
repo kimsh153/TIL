@@ -20,20 +20,6 @@
 
 ReatorKit에는 `뷰(View)`와 `리액터(Reactor)`라는 개념이 존재합니다
 
-### View
-
-`View`는 **상태를 표현**합니다(View Controller나 Cell도 모두 뷰에 해당합니다)
-
-`View`는 사용자 인터랙션을 추상화하여 리액터에 전달하고, 리액터에서 전달받은 상태를 각각의 뷰 컴포넌트에 바인드합니다
-
-`View`는 비즈니스 로직을 수행하지 않습니다
-
-### Reactor
-
-`Reactor`는 View의 **상태를 관리**합니다
-
-`Reactor`는 View에서 액션을 전달받으면 비즈니스 로직을 수행한 뒤 상태를 변경하여 다시 View에 전달합니다
-
-`Reactor`는 UI 레이어에서 독립적이기 때문에 비교적 테스트하기 쉽습니다
+ReactorKit의 아키텍처방식은 <a href="https://github.com/kimsh153/TIL/blob/master/Swift/Architecture/ReactorKit.md">ReactorKit 아키텍처 정리</a>에서 더 자세히 설명합니다.
 
 ### 참고 : https://ios-development.tistory.com/782, https://medium.com/styleshare/reactorkit-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-c7b52fbb131a
