@@ -35,4 +35,22 @@ ReatorKit에는 `뷰(View)`와 `리액터(Reactor)`라는 개념이 존재합니
 
 `Reactor`는 UI 레이어에서 독립적이기 때문에 비교적 테스트하기 쉽습니다
 
-### 참고 : https://github.com/ReactorKit/ReactorKit
+### View 코드 작성
+
+`View`프로토콜을 적용하면 뷰를 정의할 수 있습니다 `DisposeBag` 속성과 `bind(reactor:)` 메서드를 필수로 정의해야 합니다
+
+```swift
+import ReactorKit
+import RxSwift
+
+class UserViewController: UIViewController, View {
+  var disposeBag = DisposeBag()
+
+  func bind(reactor: UserViewReactor) {
+  }
+}
+```
+
+이 프로토콜을 정의하면 `reactor` 속성이 자동으로 생성됩니다 이 속성에 새로운 값이 지정되면 `bind(reactor:)` 매서드가 자동으로 호출됩니다
+
+### 참고 : https://github.com/ReactorKit/ReactorKit, https://medium.com/styleshare/reactorkit-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-c7b52fbb131a, https://ios-development.tistory.com/782
