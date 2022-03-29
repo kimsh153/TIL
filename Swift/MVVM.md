@@ -22,8 +22,5 @@
 
 ### 이러한 MVVM 패턴의 장점은 View-Model-ViewController 모두 독립적으로 테스트가 가능하게 되는 것 입니다.
 
-### 이번엔 파일을 나눠보는 예제를 해보겠습니다.
-
-
 
 ### 출처: https://42kchoi.tistory.com/292
