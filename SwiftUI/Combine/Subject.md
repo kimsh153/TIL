@@ -16,4 +16,16 @@
 
 > ### **send(\_:)를** 통해 **stream**에 값을 주입할 수 있는 **publisher**
 
+`Publisher`는 외부에서 값을 던질 수 없고 `Publisher` 내부에서 생성되어 나오는 값들만 받아서 처리했습니다
+
+![1_nHfRUNLtQZTuI2-uo6sYyA](https://user-images.githubusercontent.com/81547954/161383953-1f3029b0-dd4b-494e-ad33-3e7ccba5d76c.png)
+> https://sujinnaljin.medium.com/combine-subject-a974340cb582
+
+하지만 `publisher` 가 아닌 `subject`를 사용하면 `send(_:)` 를 통해 외부에서도 값을 주입할 수 있게 해줍니다
+
+* `send(_:)` 는 `Subject` protocol에 정의되어 있습니다.
+
+![1_Lb-eLQn1Oib_jnF1Yi6LlA](https://user-images.githubusercontent.com/81547954/161384036-90a5765c-c4a5-4c64-9927-9729c75b0c9c.png)
+> https://sujinnaljin.medium.com/combine-subject-a974340cb582
+
 ### 참고 : https://sujinnaljin.medium.com/combine-subject-a974340cb582, https://zeddios.tistory.com/965
