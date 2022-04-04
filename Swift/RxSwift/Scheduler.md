@@ -39,4 +39,22 @@ Context는 로우레벨 Thread가 될 수도 있고 Dispatch Queue, Operation Qu
 * `MainThread`에서 실행되어야 하는 추상적인 작업에서 사용합니다 `schedule`메서드가 메인 스레드에서 호출된 경우에, 스케줄링 없이 작업을 실행합니다
 * 이 스케줄러는 보통 UI 작업에서 쓰입니다
 
+### SerialDispatchQueueScheduler (Serial scheduler)
+
+* 특정 `dispatch_queue_t`에서 실행되어야 하는 추상적인 작업에서 사용합니다. 컨커런트 디스패치 큐에 전달된 경우에도 시리얼 디스패치 큐로 변환됩니다
+* 시리얼 스케줄러는 `observeOn`를 위한 특정 최적화를 가능하게 해줍니다
+* 메인 스케줄러는 `SerialDispatchQueueScheduler`의 인스턴스입니다
+
+### ConcurrentDispatchQueueScheduler (Concurrent scheduler)
+
+* 특정 `dispatch_queue_t`에서 실행되어야 하는 추상적인 작업에서 사용합니다. 시리얼 디스패치 큐에도 보낼 수 있으며 아무런 문제가 발생하지 않습니다
+* 이 스케줄러는 백그라운드에서 작업이 실행되어야 할 때 적합합니다
+
+### OperationQueueScheduler (Concurrent scheduler)
+
+* 특정 `NSOperationQueue`에서 실행되어야 하는 추상적인 작업에서 사용합니다
+* 이 스케줄러는 백그라운드에서 수행해야하는 큰 작업이 있고 `maxConcurrentOperationCount`를 이용해서 컨커런트 처리 과정을 미세 조정하려는 경우에 적합합니다
+* 이 스케줄러는 백그라운드에서 수행해야하는 더 큰 작업 청크가 있고 `maxConcurrentOperationCount`를 사용하여 동시 처리를 미세 조정하려는 경우에 적합합니다
+
+
 참고 : https://kyungmosung.github.io/2020/02/06/rxswift-scheduler/
