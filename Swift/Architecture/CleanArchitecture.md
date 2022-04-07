@@ -33,4 +33,37 @@ CleanArchitecture를 설명하기 전에 CleanArchitecture이전에 나온 아�
 
 #### 이런 `아키텍쳐들을 단일 아이디어로 통합`한것이 `클린 아키텍쳐`입니다
 
+![image](https://user-images.githubusercontent.com/81547954/162181149-683b4748-3179-4805-a035-f983f7c562c2.png)
+> Credit: 도서출판 인사이트
+
+클린 아키텍쳐의 다이어그램입니다
+
+<br>
+
+### The Dependency Rule
+
+<hr>
+
+저 원은 소프트웨어의 각각의 다른 영역들을 나타내는겁니다
+
+<br>
+
+outer circles - **mechanisms**
+
+inner circles - **정책**
+
+이 아키텍쳐를 작동시키는 가장 우선적인 규칙은 Dependency Rule 입니다
+
+<br>
+
+### Dependency Rule
+
+* 소스코드 중속성은 안쪽으로만 향할 수 있음
+* inner circles 안에 있는 것들은 outer circles에 대해 아무것도 알 수 없음
+* 특히, outer circles에 선언된 이름은 inner circles에서 언급해서는 안됩니다 (함수, 클래스 등등)
+
+```
+한마디로 요약하자면!! "outer circles이 inner circles에 영향 안미쳤으면 좋겠음!" 입니다
+```
+
 ### 참고 : https://zeddios.tistory.com/1065, <br> https://medium.com/@justfaceit/clean-architecture%EB%8A%94-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EA%B0%9C%EB%B0%9C%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%8F%84%EC%99%80%EC%A3%BC%EB%8A%94%EA%B0%80-1-%EA%B2%BD%EA%B3%84%EC%84%A0-%EA%B3%84%EC%B8%B5%EC%9D%84-%EC%A0%95%EC%9D%98%ED%95%B4%EC%A4%80%EB%8B%A4-b77496744616
