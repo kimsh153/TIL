@@ -21,6 +21,28 @@ Equatable 프로토콜을 준수하는 타입은 등호 연산자 (==) 또는 �
 
 Swift 표준 라이브러리 대부분 **기본 데이터타입은 Equatable를 따릅니다**
 
-그 말은 **Equatable 프로토콜은 어떤 "타입"이 채택할 수 있다는 것**을 알 수 있습니다
+그 말은 **Equatable 프로토콜은 어떤 "타입"이 채택할 수 있다는 것**을 알 수 있습니다 타입에는 클래스, 구조체, enum 등이 있습니다
+
+**Int와 String, Double, Bool, Float타입 모두 Equatable 프로토콜을 따르고 있습니다**
+
+<hr>
+
+**만약 클래스나 구조체의 인스턴스끼리 비교를 하고싶으면**
+
+```swift
+class A : Equatable {
+    var Num : Int
+    
+    init(_ Num :Int) {
+        self.Num = Num
+    }
+    
+    public static func ==(lhs: A, rhs: A) -> Bool {
+        return lhs.Num == rhs.Num
+    }
+}
+```
+
+이런식으로 클래스에 `Equatable` 프로토콜을 채택하여 **클래스나 구조체에 인스턴스를 비교**할 수 있습니다
 
 ### 참고 : https://zeddios.tistory.com/227, https://developer.apple.com/documentation/swift/equatable
