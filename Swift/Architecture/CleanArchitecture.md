@@ -66,4 +66,24 @@ inner circles - **정책**
 한마디로 요약하자면!! "outer circles이 inner circles에 영향 안미쳤으면 좋겠음!" 입니다
 ```
 
+이제부터 Clean Architecture를 어떻게 쓰는지 설명하겠습니다
+
+### Entities
+
+엔티티는 "Enterprise wide business rules"을 캡슐화하는것 입니다
+
+외부 변화가 있을 때 변경될 가능성이 가장 적습니다 
+
+**일반적으로 가장 높은 수준의 규칙**을 캡슐화 합니다
+
+엔티티는 `데이터 구조 및 함수 집합`이라고 생각하시면 됩니다
+
+### Use Cases
+
+유스케이스는 "**시스템의 동작을 사용자의 입장에서 표현한 시나리오**"에요
+
+또한 
+
+유스케이스는 시스템의 유즈케이스를 캡슐화하고 구현합니다 그리고 도메인 계층의 분리로 소스코드 변경 안정성(stability)이 높아집니다
+
 ### 참고 : https://zeddios.tistory.com/1065, <br> https://medium.com/@justfaceit/clean-architecture%EB%8A%94-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EA%B0%9C%EB%B0%9C%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%8F%84%EC%99%80%EC%A3%BC%EB%8A%94%EA%B0%80-1-%EA%B2%BD%EA%B3%84%EC%84%A0-%EA%B3%84%EC%B8%B5%EC%9D%84-%EC%A0%95%EC%9D%98%ED%95%B4%EC%A4%80%EB%8B%A4-b77496744616
