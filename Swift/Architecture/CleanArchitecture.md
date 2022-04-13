@@ -86,4 +86,38 @@ inner circles - **정책**
 
 유스케이스는 시스템의 유즈케이스를 캡슐화하고 구현합니다 그리고 도메인 계층의 분리로 소스코드 변경 안정성(stability)이 높아집니다
 
+```
+Use cases는 엔티티와의 데이터 흐름을 조정하고,
+
+해당 엔티티가 Use cases의 목표를 달성하도록 "지시"하는 역할을 합니다
+```
+
+<hr>
+
+**엔티티는 Use cases에 대해 전혀 알지 못합니다**
+
+하지만
+
+**Use cases는 엔티티를 알고있습니다**
+
+또한
+
+`Use cases`가 `DB,UI 같은 외부 환경`의 **변경으로 인해 영향을 받지 않아야** 합니다
+
+왜냐하면
+
+`Use cases`는 뜻 대로 `Use cases`이기 때문에 **데이터가 어디에 저장**되어있든 **외부 프레임워크가 바뀌든** 상관없는겁니다
+
+하지만
+
+앱 전체의 작동 방식 변경은 `Use cases`에 영향을 미칠 수 있습니다
+
+사용자의 시나리오가 바뀐다는 뜻이기 때문입니다
+
+### Interface Adapters
+
+<hr>
+
+다음은 초록 원입니다
+
 ### 참고 : https://zeddios.tistory.com/1065, <br> https://medium.com/@justfaceit/clean-architecture%EB%8A%94-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EA%B0%9C%EB%B0%9C%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%8F%84%EC%99%80%EC%A3%BC%EB%8A%94%EA%B0%80-1-%EA%B2%BD%EA%B3%84%EC%84%A0-%EA%B3%84%EC%B8%B5%EC%9D%84-%EC%A0%95%EC%9D%98%ED%95%B4%EC%A4%80%EB%8B%A4-b77496744616
