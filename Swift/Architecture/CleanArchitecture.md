@@ -145,4 +145,16 @@ Frameworks and Drivers
 
 이 계층에는 일반적으로 DB, 프레임워크 같은 것들로 구성이 됩니다
 
+그러니까 Dependency Rule의 방향을 보면
+
+DB > Adapter > Use Cases > Entities로 되는 것을 볼 수 있습니다
+
+### 원이 꼭 4개여야하나?
+
+그건 아닙니다 원이 몇개든 Dependency Rule만 안쪽을 향하면 됩니다 그리고 안쪽으로 갈수록 추상화 수준이 증가하면 됩니다
+
+### Crossing boundaries
+
+다이어그램의 우하단은 원 경계를 교차하는 방법의 예가 있습니다
+
 ### 참고 : https://zeddios.tistory.com/1065, <br> https://medium.com/@justfaceit/clean-architecture%EB%8A%94-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EA%B0%9C%EB%B0%9C%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%8F%84%EC%99%80%EC%A3%BC%EB%8A%94%EA%B0%80-1-%EA%B2%BD%EA%B3%84%EC%84%A0-%EA%B3%84%EC%B8%B5%EC%9D%84-%EC%A0%95%EC%9D%98%ED%95%B4%EC%A4%80%EB%8B%A4-b77496744616
