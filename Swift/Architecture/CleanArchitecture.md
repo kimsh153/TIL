@@ -157,4 +157,13 @@ DB > Adapter > Use Cases > Entities로 되는 것을 볼 수 있습니다
 
 다이어그램의 우하단은 원 경계를 교차하는 방법의 예가 있습니다
 
+![image](https://user-images.githubusercontent.com/81547954/163670773-dd8b5e95-a347-451c-804a-5eb87574d45d.png)
+
+분홍색선을 보면 Controller에서 시작해서 Use Case를 거쳐 Presenter에서 실행됩니다
+
+**Use Case를 거쳐 Prsenter에서 실행됩니다**
+
+그럼 결국 Use case가 Presenter를 호출 할 수도 있습니다
+
+
 ### 참고 : https://zeddios.tistory.com/1065, <br> https://medium.com/@justfaceit/clean-architecture%EB%8A%94-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EA%B0%9C%EB%B0%9C%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%8F%84%EC%99%80%EC%A3%BC%EB%8A%94%EA%B0%80-1-%EA%B2%BD%EA%B3%84%EC%84%A0-%EA%B3%84%EC%B8%B5%EC%9D%84-%EC%A0%95%EC%9D%98%ED%95%B4%EC%A4%80%EB%8B%A4-b77496744616
