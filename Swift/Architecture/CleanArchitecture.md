@@ -165,5 +165,25 @@ DB > Adapter > Use Cases > Entities로 되는 것을 볼 수 있습니다
 
 그럼 결국 Use case가 Presenter를 호출 할 수도 있습니다
 
+그런데 이렇게 되면 `Dependency Rule`에서 나온 
+
+```
+* 소스코드 종속성은 안쪽으로만 향할 수 있음
+* inner circles 안에 있는 것들은 outer circles에 대해 아무것도 알 수 없음
+* 특히, outer circles에 선언된 이름은 inner circles에서 언급해서는 안된다 (함수, 클래스 등등)
+```
+에 어긋나게 됩니다
+
+#### 그래서
+
+![image](https://user-images.githubusercontent.com/81547954/163813432-c549d8af-9355-42c7-bcd0-68f9d39b871b.png)
+
+Output Port라는 `인터페이스`를 둡니다
+
+그래서 Use case는 이 Output port에 있는 인터페이스를 호출합니다
+
+그리고 Presenter는 이 Output port 인터페이스를 구현합니다
+
+> 직접 Presenter의 구현체에 접근을 안하고 인터페이스를 통해 접근한다는 것이 가장 중요합니다
 
 ### 참고 : https://zeddios.tistory.com/1065, <br> https://medium.com/@justfaceit/clean-architecture%EB%8A%94-%EB%AA%A8%EB%B0%94%EC%9D%BC-%EA%B0%9C%EB%B0%9C%EC%9D%84-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%8F%84%EC%99%80%EC%A3%BC%EB%8A%94%EA%B0%80-1-%EA%B2%BD%EA%B3%84%EC%84%A0-%EA%B3%84%EC%B8%B5%EC%9D%84-%EC%A0%95%EC%9D%98%ED%95%B4%EC%A4%80%EB%8B%A4-b77496744616
