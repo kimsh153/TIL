@@ -85,4 +85,45 @@ URLSession.shared.dataTask(with: request, completionHandler: {(data, response, e
 pod 'Alamofire'
 ```
 
+그럼 한번 확인해 보기위해 Alamofire를 이용하여 위에 코드와 똑같은 로직을 짜보겠습니다
+
+```swift
+Alamofire.request("https://api.github.com/users", method: .get, parameters: [:], encoding: URLEncoding.default, headers: ["Content-Type":"application/json", "Accept":"application/json"])
+            .validate(statusCode: 200..<300)
+            .responseJSON { (response) in
+            if let JSON = response.result.value
+            {
+                print(JSON)
+            }
+        }
+```
+이게 끝입니다!
+
+**위에서 일일이 추가 하던 것과는 다르게 확연히 다른 차이를 볼 수 있습니다**
+
+**훨씬 간결해서 보기도 편합니다**
+
+뿐만 아니라
+
+**request가 성공인지 실패인지를 필터를 하는 `validate(statusCode:200..<300)`로 200~299사이의 statusCode결과만 받아올 수 있는 간편한 기능도 지원합니다**
+
+이제는 다른 예제를 통해 GET메서드 어떤식으로 작성하는지 하나씩 뜯어보겠습니다
+
+이번 예제는 JSON 샘플 데이터를 제공하는 사이트를 통해 데이터를 가져와 보겠습니다
+
+> https://jsonplaceholder.typicode.com/todos/1
+
+```swift
+let url = "https://jsonplaceholder.typicode.com/todos/1"
+AF.request(url,
+           method: .get,
+           parameters, nil,
+           encoding: URLEncoding.default,
+           headers: ["Content-Type":"application/json", "Accept":"application/json"]),
+      .validate(statusCode: 200..<300)
+      .responseJSON { (json) in
+          print(json)
+    }
+```
+
 ### https://www.zehye.kr/ios/2020/04/01/12iOS_alamofire/
