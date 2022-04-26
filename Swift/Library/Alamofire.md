@@ -107,7 +107,7 @@ Alamofire.request("https://api.github.com/users", method: .get, parameters: [:],
 
 **request가 성공인지 실패인지를 필터를 하는 `validate(statusCode:200..<300)`로 200~299사이의 statusCode결과만 받아올 수 있는 간편한 기능도 지원합니다**
 
-이제는 다른 예제를 통해 GET메서드 어떤식으로 작성하는지 하나씩 뜯어보겠습니다
+이제는 다른 예제를 통해 GET통신방식은 어떤식으로 작성하는지 하나씩 뜯어보겠습니다
 
 이번 예제는 JSON 샘플 데이터를 제공하는 사이트를 통해 데이터를 가져와 보겠습니다
 
@@ -126,4 +126,18 @@ AF.request(url,
     }
 ```
 
-### https://www.zehye.kr/ios/2020/04/01/12iOS_alamofire/
+**AF.request 뒤에**
+
+* 주소를 넣고
+* `method`에는 어떤 통신방식(get,post등등)을 사용할건지 넣고
+* `parameters` 는 밑에서 post 통신할 때 더 자세히 알아보겠습니다
+* `endcoding`은 URL 이니까 `URLEncoding` 적어줍니다
+* `headers`는 `json` 형식으로 받게끔 써줍니다
+* `validate`는 **확인 코드**입니다
+* `responseJSON` 이 **정보를 받는 부분**입니다
+
+여기까지가 `GET 통신방식` 입니다
+
+`POST`는 **서버로 값을 보내는거**입니다 그래서 **테스트 사이트**를 하나 들어가겠습니다
+
+### https://www.zehye.kr/ios/2020/04/01/12iOS_alamofire/, https://gonslab.tistory.com/14
