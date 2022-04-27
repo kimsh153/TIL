@@ -140,4 +140,12 @@ AF.request(url,
 
 `POST`는 **서버로 값을 보내는거**입니다 그래서 **테스트 사이트**를 하나 들어가겠습니다
 
+<a href="https://ptsv2.com/">테스트 사이트</a>로 들어가시면 됩니다
+
+<img width="750" alt="스크린샷 2022-04-27 오후 5 52 19" src="https://user-images.githubusercontent.com/81547954/165480605-a41b4f82-0513-47f2-b48a-6b8acbbe8c9c.png">
+
+이 사이트에 들어오시면 
+
+<img width="392" alt="스크린샷 2022-04-27 오후 5 54 35" src="https://user-images.githubusercontent.com/81547954/165481035-35eb71e8-c9c8-4a46-883a-d6febaf62602.png">
+
 ### https://www.zehye.kr/ios/2020/04/01/12iOS_alamofire/, https://gonslab.tistory.com/14
