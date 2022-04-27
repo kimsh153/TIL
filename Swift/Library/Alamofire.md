@@ -148,4 +148,51 @@ AF.request(url,
 
 <img width="392" alt="스크린샷 2022-04-27 오후 5 54 35" src="https://user-images.githubusercontent.com/81547954/165481035-35eb71e8-c9c8-4a46-883a-d6febaf62602.png">
 
+**New Random Toilet을 누릅니다**
+
+<img width="531" alt="스크린샷 2022-04-27 오후 5 59 30" src="https://user-images.githubusercontent.com/81547954/165482002-dfdd6d10-0842-4424-9614-b6a7b30d4a45.png">
+
+이 페이지로 오면
+
+<img width="280" alt="스크린샷 2022-04-27 오후 5 59 43" src="https://user-images.githubusercontent.com/81547954/165482043-6acae64e-3612-4364-9135-87f373bb5337.png">
+
+여기 ID가 있습니다 
+
+이 `ID`는 **서버의 고유 아이디**입니다 그리고 `Post URL`은 **데이터를 보낼 주소**입니다
+
+이제 POST 매서드를 사용해 보겠습니다
+
+아까 안 쓴 parameters에서 데이터를 보냅니다(헤더에도 쓸 수 있습니다)
+
+```swift
+let url = "https://ptsv2.com/t/1kvgb-1651049945/post"
+        var request = URLRequest(url: URL(string: url)!)
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.timeoutInterval = 10
+       
+        let params = ["id":"아이디", "pw":"패스워드"] as Dictionary
+
+        do {
+            try request.httpBody = JSONSerialization.data(withJSONObject: params, options: [])
+        } catch {
+            print("http Body Error")
+        }
+        
+        AF.request(request).responseString { (response) in
+            switch response.result {
+            case .success:
+                print("POST 성공")
+            case .failure(let error):
+                print("error")
+            }
+        }
+```
+
+이렇게 post를 보냅니다
+
+그리고 사이트에서 다시 새로고침을 눌러보면 데이터가 들어있는걸 확인할 수 있습니다
+
+이 밖에도 `DELETE`, `PATCH` 등 다양한 통신방식이 있습니다
+
 ### https://www.zehye.kr/ios/2020/04/01/12iOS_alamofire/, https://gonslab.tistory.com/14
