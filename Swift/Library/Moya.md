@@ -5,8 +5,16 @@
 iOS에서 네트워킹을 구현하는 가장 기본적인 방법은`URLSession`을 사용하는 것입니다
 
 `URLSession`은 로우레벨의 코드를 작성할 수 있고,
+
 다른 프레임워크를 사용할 필요가 없다는 장점이 있지만,
-사용이 복잡하고 코드의 가독성이 좋지 않아서 Foundation Networking을 기반으로한 인터페이스를 제공해 네트워킹 작업을 단순화 해주는 라이브러리인 `Alamofire`를 많이 사용합니다
+
+사용이 복잡하고 코드의 가독성이 좋지 않아서 `Foundation Networking`을 기반으로한 인터페이스를 제공해 
+
+네트워킹 작업을 단순화 해주는 라이브러리인 `Alamofire`를 많이 사용합니다
+
+> 로우레벨이란? 컴퓨터가 이해하기 쉽게 작성된 프로그래밍 언어이다 예를 들어 기계어와 어샘블리어같은것이 있다
+
+> Foundation 
 
 ### URLSession의 장단점
 **장점**
@@ -59,9 +67,29 @@ pod 'Moya/Combine', '~> 15.0'
 
 `Moya`에서 제공해주는 <a href="https://github.com/Moya/Moya/blob/master/docs/Examples/Basic.md">템플릿</a>을 이용하면 좋습니다
 
+그러면 `Moya`를 통해 네트워킹을 하기위해 <a href="http://www.icndb.com/">ICNDb.com</a> 이 사이트는 랜덤한 조크를 리턴해주는 api입니다
+
+### API target enum
+
+새로운 파일을 하나 만들고 `JokeAPI.swift`
+
+enum을 하나 선언해서 사용될 target들을 작성합니다
+
+```swift
+// JokeAPI.swift
+import Moya
+
+enum JokeAPI {
+    case randomJokes(_ firstName: String? = nil, _ lastName: String? = nil)
+}
+```
+이 예제에서는 이름을 파라미터로 받아 조크의 이름을 만들어주는 target을 하나만 사용하겠습니다
+
+### TargetType 구현
+
 `Moya`는 `MoyaProvider<TargetType>`으로 request를 수행하기 때문에,
 
-정의한 API가 `TargetType` 프로토콜을 구현해야합니다
+위에서 정의한 API가 `TargetType` 프로토콜을 구현해야합니다
 
 <br>
 
@@ -69,12 +97,70 @@ extension을 만들어 `TargetType`프로토콜을 체택하면,
 
 아래와 같은 프로파티들을 구현 해야합니다
 
-* baseURL: 서버의 endpoint 도메인
+* baseURL: 서버의 endpoint 도메인(url)
 * path: 도메인 뒤에 추가 될 path(/users, /documents, ...)
 * method: HTTP method(GET, POST, ...)
 * sampleData: 테스트용 Mock Data
 * task: request에 사용될 파라미터 .requestPlain: no param, .requestParametrs(parameter:,encoding:)
 * headers: HTTP Header
+
+```swift
+extension JokeAPI: TargetType {
+    var baseURL: URL {
+        return URL(string: "https://api.icndb.com")!
+    }
+    
+    var path: String {
+        switch self {
+        case .randomJokes(_, _):
+            return "/jokes/random"
+        }
+    }
+    
+    var method: Moya.Method {
+        switch self {
+        case .randomJokes(_, _):
+            return .get
+        }
+    }
+    
+    var sampleData: Data {
+        switch self {
+        case .randomJokes(let firstName, let lastName):
+            let firstName = firstName
+            let lastName = lastName
+            
+            return Data(
+                """
+                {
+                    "type": "success",
+                    "value": {
+                        "id": 107,
+                        "joke": "\(firstName)\(lastName) can retrieve anything from /dev/null."
+                    }
+                }
+                """.utf8
+            )
+        }
+    }
+    
+    var task: Task {
+        switch self {
+        case .randomJokes(let firstName, let lastName):
+            let params: [String: Any] = [
+                "firstName": firstName,
+                "lastName": lastName
+            ]
+            return .requestParameters(parameters: params, encoding: URLEncoding.queryString)
+        }
+    }
+    
+    var headers: [String : String]? {
+        return ["Content-type": "application/json"]
+    }
+}
+```
+
 
 ### 설치법
 
