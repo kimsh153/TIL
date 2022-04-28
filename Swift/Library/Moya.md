@@ -1,5 +1,7 @@
 # Moya
 
+![diagram](https://user-images.githubusercontent.com/81547954/165767944-9bea0e7f-80c8-4caa-b7b4-91de0e7b436e.png)
+
 ### Moya라이브러리가 왜 만들어졌나
 
 iOS에서 네트워킹을 구현하는 가장 기본적인 방법은`URLSession`을 사용하는 것입니다
@@ -161,13 +163,62 @@ extension JokeAPI: TargetType {
 }
 ```
 
+위에처럼 `switch`문을 통해 여러 target에 맞는 프로퍼티들을 정의해줄 수 있습니다
 
-### 설치법
+### 3.Request 보내고 Response 받아서 처리하기
 
-**Cocoapod**
+이제 위에서 정의한 `TargetType`을 이용해 request를 보내는 코드를 작성하겠습니다
+
+response 시 받는 JSON의 형태는 아래와 같습니다
 
 ```
-pod 'Moya'
+{
+    "type": "success",
+    "value": {
+        "id": 268,
+        "joke": "Time waits for no man. Unless that man is John Doe."
+    }
+}
+```
+
+이와 대응되는 Decodable struct를 정의합니다 
+
+model을 짜는 작업을 합니다
+
+```swift
+struct Joke: Decodable {
+    var type: String
+    var value: Value
+    
+    struct Value: Decodable {
+        var id: Int
+        var joke: String
+    }
+}
+```
+
+이제 request를 보내고 받은 response를 text view에 표시해보도록 하겠습니다
+
+```
+class ViewController: UIViewController {
+    @IBOutlet var jokeTextView: UITextView!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        let provider = MoyaProvider<JokeAPI>()
+        provider.request(.randomJokes("GilDong", "Hong")) { (result) in
+            switch result {
+            case let .success(response):
+                let result = try? response.map(Joke.self)
+                self.jokeTextView.text = result?.value.joke
+            case let .failure(error):
+                print(error.localizedDescription)
+            }
+            
+        }
+    }
+}
 ```
 
 ### 참고 : https://velog.io/@dlskawns96/iOS-Moya%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9-Swift-Http-%ED%86%B5%EC%8B%A0
