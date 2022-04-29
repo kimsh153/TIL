@@ -199,7 +199,7 @@ struct Joke: Decodable {
 
 이제 request를 보내고 받은 response를 text view에 표시해보도록 하겠습니다
 
-```
+```swift
 class ViewController: UIViewController {
     @IBOutlet var jokeTextView: UITextView!
     
@@ -215,10 +215,11 @@ class ViewController: UIViewController {
             case let .failure(error):
                 print(error.localizedDescription)
             }
-            
         }
     }
 }
 ```
+
+**네트워크 요청을 `Moya`를 통해 처리하면 enum을 활용해 안전한 방식으로 캡슐화된 요청을 할 수 있다는 장점이 있고, 코드를 직관적이고 쉽게 작성할 수 있다는 장점이 있습니다**
 
 ### 참고 : https://velog.io/@dlskawns96/iOS-Moya%EB%A5%BC-%EC%82%AC%EC%9A%A9%ED%95%9C-%EB%84%A4%ED%8A%B8%EC%9B%8C%ED%82%B9-Swift-Http-%ED%86%B5%EC%8B%A0
