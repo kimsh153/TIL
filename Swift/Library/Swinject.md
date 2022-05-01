@@ -62,5 +62,32 @@ person.play() // prints "I'm playing with MOMO."
 ```
 * resolve를 이용해 사용할 서비스 인스턴스를 가져옵니다
 
+아직은 이해하기 쉽지 않지만 한가지는 알 수 있습니다
+
+#### `register로 등록을 하고 resolve로 사용한다`
+
+실제로 AppDelegate에서 등록하고 사용한다면 이렇게 해볼 수 있을것입니다
+```swift
+let container = Container()
+container.register(FirstViewModel.self) { r in FirstViewModel() }
+container.register(SecondViewModel.self) { r in SecondViewModel() }
+
+container.register(FirstViewController.self) { r in
+    let controller = FirstViewController()
+    controller.viewModel = r.resolve(FirstViewModel.self)
+    
+    return controller
+}
+container.register(SecondViewController.self) { r in
+    let controller = SecondViewController()
+    controller.viewModel = r.resolve(SecondViewModel.self)
+    
+    return controller
+}
+
+self.window?.rootViewController = container.resolve(FirstViewController.self)
+```
+AppDelegate에서 하나의 컨테이너를 만들고 여러 의존성을 주입시키고 사용함으로 **앱 전체의 의존성을 편리하게 관리할 수 있습니다**
+
 ### 참고 : https://velog.io/@velmash/Swinject, https://green1229.tistory.com/163
 ### 3rd Party Library참고 : https://vivabin.tistory.com/2
