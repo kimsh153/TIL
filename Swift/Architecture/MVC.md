@@ -38,4 +38,12 @@ MV**C**에서 `Controller`에 대해 알아보겠습니다
 
 * Controller는 Model 이 가지고 있는 데이터를 **"어떻게"** 할 것인지 명령을 내립니다
 
+`View`에서 `input events`를 보내면 `Controller`는 이를 받아서 `Model`에 요청을 만들어 보냅니다
+
+`Model`에는 `Data`나 `Logic`이 있어서 이를 처리해 `Controller`에 처리한 `Data`를 보냅니다
+
+마지막으로 `Controller`는 이를 받아 해석하고 `View`에게 관련 부분을 보내서 `View`에서 `User Interface`를 처리합니다
+
+정리하자면 `View`와 `Model`은 다이렉트로 절대 소통하지 못하고, `Controller`를 통해야만 가능합니다
+
 ### https://sochubert.github.io/swift/mvc/, https://velog.io/@kevinkim2586/iOS-Swift-%EA%B3%B5%EB%B6%80-6-MVC-Design-Pattern-%EB%B0%8F-%EC%A0%81%EC%9A%A9
