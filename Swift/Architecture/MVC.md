@@ -38,6 +38,8 @@ MV**C**에서 `Controller`에 대해 알아보겠습니다
 
 * Controller는 Model 이 가지고 있는 데이터를 **"어떻게"** 할 것인지 명령을 내립니다
 
+### 정리
+
 `View`에서 `input events`를 보내면 `Controller`는 이를 받아서 `Model`에 요청을 만들어 보냅니다
 
 `Model`에는 `Data`나 `Logic`이 있어서 이를 처리해 `Controller`에 처리한 `Data`를 보냅니다
@@ -45,5 +47,17 @@ MV**C**에서 `Controller`에 대해 알아보겠습니다
 마지막으로 `Controller`는 이를 받아 해석하고 `View`에게 관련 부분을 보내서 `View`에서 `User Interface`를 처리합니다
 
 정리하자면 `View`와 `Model`은 다이렉트로 절대 소통하지 못하고, `Controller`를 통해야만 가능합니다
+
+### 이런 아키텍쳐가 중요한 이유
+
+예를 들어 한국어로 어플을 내었는데, 그것이 유명해져서 영어, 중국어, 일본어 등으로도 출시를 해야한다고 가정해봅시다
+
+MVC 디자인 패턴을 적용하여 앱을 만들었다면, Controller나 View는 전혀 건드리지 않아도 될 것입니다
+
+단지 Model 부분만 건드리면 간단하게 추가가 가능해지는 것입니다
+
+그래서 MVC에서는 Reusing code에 아주 강력합니다
+
+게다가 다른 개발자들이 코드를 볼 때도 쉽게 이해가 가능하다는 장점이 있습니다
 
 ### https://sochubert.github.io/swift/mvc/, https://velog.io/@kevinkim2586/iOS-Swift-%EA%B3%B5%EB%B6%80-6-MVC-Design-Pattern-%EB%B0%8F-%EC%A0%81%EC%9A%A9
