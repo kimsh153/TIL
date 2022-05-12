@@ -41,10 +41,29 @@ func backward(_ s1: String, _ s2: String) -> Bool {
   return s1 > s2
 }
 var reversedNames = names.sorted(by: backward)
-// reversedNames를 출력할 시 옆과 같이 뜹니다. ["Ewa", "Daniella", "Chris", "Barry", "Alex"]
+// reversedNames를 출력할 시 옆과 같이 뜹니다 ["Ewa", "Daniella", "Chris", "Barry", "Alex"]
 ```
 backword 클로저를 만들고 그것을 names.sorted(by:backward)에 넣으면 원본 배열의 순서가 바뀐 배열을 정렬 결과로 얻을 수 있습니다
 
 방금 쓴 코드들을 앞으로 클로저의 다양한 문법 및 상요에 대해 알면서 더 짧게 쓸 수 있습니다
+
+### 클로저 표현 문법 (Closure Expression Syntax)
+
+클로저 표현 문법은 일반적으로 아래의 형태를 띱니다
+
+```swift
+{ (parameters) -> return type in 
+    statements
+}
+```
+인자로 넣을 `parameters`, 인자 값으로 처리할 내용을 기술하는 `statements` 그리고 `return type`입니다 
+
+앞의 `backward`클로저를 이용해 배열을 정렬하는 코드는 클로저 표현을 이용해 다음과 같이 바꿀 수 있습니다
+
+```swift
+reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
+    return s1 > s2
+})
+```
 
 ### 출처 : https://jusung.gitbook.io/the-swift-language-guide/language-guide/07-closures
