@@ -21,4 +21,26 @@ if문, while문, guard문에서 사용합니다
 
 > syntax: 구문
 
+```swift
+//if 문
+if let name: Type = OptionalExpression {
+    Statements
+}
+
+//while문
+while let name: Type = OptionalExpression {
+    Statements
+}
+
+//guard문
+guard let name: Type = OptionalExpression else {
+    Statements
+    //바인딩에 실패할 경우 else블록이 실행된다
+}
+```
+
+Binding은 옵셔널 표현식을 평가하여, 값을 리턴할 수 있으면 (즉, 값이 저장되어 있으면) unwrapping되어서 상수에 저장됩니다
+
+값을 리턴하는 경우에만 (값을 저장하는 경우에만) unwrapping하기 때문에 crash의 위험이 없습니다
+
 ### 참고: https://swycha.tistory.com/6
