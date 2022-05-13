@@ -20,6 +20,8 @@ Observable == Observable sequence == sequence
 
 Observable을 만드는 코드는 다양하게 있습니다
 
+### Observable(sequence) 생성
+
 클로저 형식이며 다양한 값(onNext, onCompleted, ...)을 생성할 수 있는 `create` 방법입니다
 
 ```swift
@@ -50,5 +52,30 @@ Observable.of([1,2,3])
 ```swift
 Observable.just([1, 2, 3])
 ```
+
+### Observable subscribing
+
+"Observable 구독" 즉, 옵저버에 담긴 이벤트들을 방출(emit)하는 것이 subscribe메소드를 사용하는 것입니다
+
+**observable.subscribe()**
+
+```swift
+example(of: "subscribe") {
+  let one = 1
+  let two = 2
+  let three = 3
+  
+  let observable = Observable.of(one, two, three)
+}
+```
+옵저버블에 요소를 추가해줍니다
+
+```swift
+observable.subscribe { event in 
+    print(event)
+}
+```
+
+그리고 subscribe를 통해 observable을 구독해줍니다
 
 ### 참고: https://ios-development.tistory.com/97
