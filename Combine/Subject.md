@@ -34,7 +34,48 @@ Subject의 종류는 크게 `PassthroughSubject`와 `CurrentValueSubject`로 나
 
 ### PassthroughSubject
 
-<img width="687" alt="스크린샷 2022-05-21 오후 5 24 41" src="https://user-images.githubusercontent.com/81547954/169643005-d7f27948-ae98-4704-891e-1c51cc6a47c7.png">
-> https://sujinnaljin.medium.com/combine-subject-a974340cb582
+<img width="687" alt="스크린샷 2022-05-21 오후 5 24 41" src="https://user-images.githubusercontent.com/81547954/169643005-d7f27948-ae98-4704-891e-1c51cc6a47c7.png"> > https://sujinnaljin.medium.com/combine-subject-a974340cb582
+
+에제를 바로 보겠습니다
+
+```swift
+// 1. String과 Never 타입의 PassthroughSubject 객체를 생성합니다
+let subject = PassthroughSubject<String, Never>()
+
+// 2.sink 를 이용하여 subscription1을 생성합니다
+let subscription1 = subject
+	.sink(
+    	receiveCompletion: { completion in
+      		print("Received completion (1)", completion)
+    	},
+    	receiveValue: { value in
+      		print("Received value (1)", value)
+    	}
+  	)
+// 3.sink 를 이용하여 subscription2을 생성합니다
+let subscription2 = subject
+	.sink(
+    	receiveCompletion: { completion in
+      		print("Received completion (2)", completion)
+    	},
+    	receiveValue: { value in
+      		print("Received value (2)", value)
+    	}
+  	)
+//4. 값을 보냅니다
+subject.send("Hello")
+subject.send("World")
+```
+
+이렇게 `PassthroughSubject`를 사용하면 `send(_:)`를 통해 필요에 따라 새로운 값을 게시할 수 있습니다
+
+`broadcast`니까 해당 `subject`를 구독하고 있는 모든 `subscriber`에게 값을 보내게 되니 출력은 이런식으로 되게 됩니다
+
+```
+Received value (1) Hello
+Received value (2) Hello
+Received value (1) World
+Received value (2) World
+```
 
 ### 참고 : https://sujinnaljin.medium.com/combine-subject-a974340cb582, https://zeddios.tistory.com/965
