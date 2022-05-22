@@ -6,7 +6,18 @@ Combine은 시간의 흐름에 따라 값을 처리하기 위한 Declarative Swi
 
 또한 Combine은 Apple에서 제작했기에 install할 필요가 없습니다
 
-Combine은 RxSwift라고 생각하시면 편합니다
+Combine은 RxSwift와 비슷하다 생각하시면 편합니다
+
+하지만 **Combine은 애플에서 RxSwift의 역할을 위해 만든 퍼스트파티 프레임워크**입니다
+
+> RxSwift는 서드파티 프레임워크입니다
+
+\* 퍼스트 파티(first party): 하드웨어 생산자가 직접 소프트웨어를 개발하면 보통 퍼스트파티라고 합니다
+> 출처: https://m.etnews.com/200302200212
+
+\* 서드 파티(3rd party): Plugin(플러그인), Lib(라이브러리), Framework(프레임워크)등을 말합니다
+> 출처: https://drehzr.tistory.com/913
+
 
 #### Combine의 계층
 
