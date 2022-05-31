@@ -53,4 +53,92 @@ class UserViewController: UIViewController, View {
 
 이 프로토콜을 정의하면 `reactor` 속성이 자동으로 생성됩니다 이 속성에 새로운 값이 지정되면 `bind(reactor:)` 매서드가 자동으로 호출됩니다
 
+이곳에는 사용자 인터랙션을 바인드하거나, 리액터의 상태를 각각의 뷰 컴퓨넌트에 바인드하는 코드를 작성합니다
+
+```swift
+func bind(reactor: UserViewReactor) {
+  // Action
+  self.followButton.rx.tap
+    .map { Reactor.Action.follow }
+    .bind(to: reactor.action)
+    .disposed(by: self.disposeBag)
+
+  // State
+  reactor.state.map { $0.isFollowing }
+    .distinctUntilChanged()
+    .bind(to: self.followButton.rx.isSelected)
+    .disposed(by: self.disposeBag)
+}
+```
+
+### Reactor 코드 작성
+
+리액터를 정의하기 위해서는 `Reactor`프로토콜을 사용합니다
+
+사용자 인터랙션을 표현하는`Action`과 뷰의 상태를 표현하는 `State`, 그리고 상태를 변경하는 가장 작은 단위인 `Mutation`을 클래스 내부에 필수로 정의해야 합니다
+
+또한 가장 첫 상태를 나타내는 `initialState`가 필요합니다
+
+```swift
+import ReactorKit
+import RxSwift
+
+final class UserViewReactor: Reactor {
+  enum Action {
+    case follow
+  }
+
+  enum Mutation {
+    case setFollowing(Bool)
+  }
+
+  enum State {
+    var isFollowing: Bool
+  }
+
+  let initialState: State = State(isFollowing: false)
+}
+```
+
+Action이나 State와 달리 Mutation은 리액터 클래스 밖으로 노출되지 않습니다
+
+대신 클래스 내부에서 Action과 State를 연결하는 역할을 수행합니다
+
+Action이 리액터에 전달되면 두 단계를 거쳐서 뷰의 상태를 변경합니다
+
+![image](https://user-images.githubusercontent.com/81547954/171071915-3fa68c63-5fe0-49d5-9588-0742ccd254a9.png)
+
+`mutate()` 함수에서는 Action 스트림을 Mutation 스트림으로 변환하는 역할을 합니다
+
+이곳에서 네트워킹이나 비동기로직 등의 사이드 이펙트를 처리합니다
+
+그 결과로 Mutation을 방출하면 그 값이 `reduce()` 함수로 전달됩니다
+
+`reduce()`함수는 이전 상태와 Mutation을 받아서 다음 상태를 반환합니다
+
+```swift
+func mutate(action: Action) -> Observable<Mutation> {
+  switch action {
+    case .follow:
+      return UserService.follow()
+        .map { Mutation.setFollowing(true) }
+        .catchErrorJustReturn(Mutation.setFollowing(false))
+
+    case .unfollow:
+      return UserService.unfollow()
+        .map { Mutation.setFollowing(false) }
+        .catchErrorJustReturn(Mutation.setFollowing(true))
+  }
+}
+
+func reduce(state: State, mutation: Mutation) -> State {
+  var newState = state
+  switch mutation {
+  case let setFollowing(isFollowing):
+    newState.isFollowing = isFollowing
+  }
+  return newState
+}
+```
+
 ### 참고 : https://github.com/ReactorKit/ReactorKit, https://medium.com/styleshare/reactorkit-%EC%8B%9C%EC%9E%91%ED%95%98%EA%B8%B0-c7b52fbb131a, https://ios-development.tistory.com/782
