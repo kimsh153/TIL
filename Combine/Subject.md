@@ -34,7 +34,8 @@ Subject의 종류는 크게 `PassthroughSubject`와 `CurrentValueSubject`로 나
 
 ### PassthroughSubject
 
-<img width="687" alt="스크린샷 2022-05-21 오후 5 24 41" src="https://user-images.githubusercontent.com/81547954/169643005-d7f27948-ae98-4704-891e-1c51cc6a47c7.png"> > https://sujinnaljin.medium.com/combine-subject-a974340cb582
+<img width="687" alt="스크린샷 2022-05-21 오후 5 24 41" src="https://user-images.githubusercontent.com/81547954/169643005-d7f27948-ae98-4704-891e-1c51cc6a47c7.png"> 
+> https://sujinnaljin.medium.com/combine-subject-a974340cb582
 
 에제를 바로 보겠습니다
 
