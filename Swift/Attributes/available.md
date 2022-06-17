@@ -89,4 +89,13 @@ if #available(iOS 11.0, *) {
 
 주의할 점은, 해당 버전을 포함하여 "**그 이상의 버전**"인지를 확인하는거입니다 그러니까
 
+```swift
+if #availabel(iOS 11.0, *) {
+            // iOS 11..15
+} else {
+            // iOS 11..15가 아닌 다른 버전들
+}
+```
+가 되는 것 입니다
+
 ### 참고: https://zeddios.tistory.com/647
