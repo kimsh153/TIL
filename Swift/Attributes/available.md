@@ -64,4 +64,29 @@ optional 버전번호는 1~3개의 양의 정수로 구성되며, 마침표로 �
 
 새 이름은 문자열 리터럴로 구성됩니다
 
+여기까지가 애플 공식 문서에 정리된 내용입니다
+
+available은 사용할때 #available과 @available이 있습니다
+
+### \#available
+
+\#available은 많이 보셨을겁니다
+
+```swift
+if #available(iOS 11.0, *) {
+      // do something
+} else {
+      // do something
+}
+```
+이런식으로 써져있는거 보셨을 겁니다
+
+**\#available은 여러 플랫폼에서 서로 다른 논리 처리를 결정하기 위해서 if 또는 guard문과 같이 사용됩니다**
+
+**즉, Bool을 반환하는 런타임 검사입니다**
+
+\*은 필수입니다
+
+주의할 점은, 해당 버전을 포함하여 "**그 이상의 버전**"인지를 확인하는거입니다 그러니까
+
 ### 참고: https://zeddios.tistory.com/647
