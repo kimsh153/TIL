@@ -98,4 +98,24 @@ if #availabel(iOS 11.0, *) {
 ```
 가 되는 것 입니다
 
+그럼 타입은? 메소드를 버전또는 플랫폼 별로 제한 할 수 없을까요?
+
+그럴때 바로 @available을 사용합니다
+
+### @available
+
+@available은 함수(메소드), 클래스 또는 프로토콜 앞에 놓입니다!
+
+타입 또는 프로토콜이 적용되는 플랫폼 및 OS를 나타냅니다 
+
+이건 deployment target과 관련이 깊습니다.
+
+\#available과 다르게, 컴파일타임에 경고 또는 오류를 생성합니다
+
+```swift
+@available(iOS 12, *)
+
+func setupDoneButton() { }
+```
+
 ### 참고: https://zeddios.tistory.com/647
