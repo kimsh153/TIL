@@ -3,6 +3,8 @@
 ### FSCalendar?
 iOS에서 달력을 쉽게 사용할 수 있는 라이브러리입니다
 
+![4fabae40-69f2-11e5-97ab-afbacd0a3da2](https://user-images.githubusercontent.com/81547954/177998136-3971b4a4-efec-4ccc-801d-80ad5503c2b2.jpg)
+
 ### 설치법
 
 **CocoaPods**
