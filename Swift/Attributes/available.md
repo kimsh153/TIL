@@ -108,7 +108,7 @@ if #availabel(iOS 11.0, *) {
 
 타입 또는 프로토콜이 적용되는 플랫폼 및 OS를 나타냅니다 
 
-이건 deployment target과 관련이 깊습니다.
+이건 deployment target과 관련이 깊습니다
 
 \#available과 다르게, 컴파일타임에 경고 또는 오류를 생성합니다
 
@@ -117,5 +117,48 @@ if #availabel(iOS 11.0, *) {
 
 func setupDoneButton() { }
 ```
+
+이렇게 되면 iOS12를 포함한 그 이상의 버전에서만 setupDoneButton을 호출 할 수 있습니다!
+
+근데 만약! 내 deployment target이 10이다?
+
+그러면
+
+```swift
+if #available(iOS 12, *) {
+    self.setupDoneButton()
+} else {
+    // Fallback on earlier versions
+}
+```
+
+이렇게 호출할 수 밖에 없습니다...
+
+이렇게 하나의 플렛폼에서만 체크할수도 있지만, 여러개도 가능합니다!
+
+```swift
+@available(iOS 10.0, macOS 10.12, *)
+func setupDoneButton() { }
+```
+
+이런식으로 iOS 버전과 macOS 버전을 정할 수 있습니다!
+
+자 차이점을 아시겠나요??
+
+그럼 위에서 말한 unavailable, introduced...등등을 써보겠습니다!
+
+저것들은 모두 @available안에 들어가는 것들입니다
+
+#### unavailable
+
+```swift
+@available(*, unavailable)
+
+func setupDoneButton() { }
+```
+
+위에서 *은 "*(별표)를 사용하여 위에 나열 된 모든 플랫폼 이름에 대한 선언의 가용셩(availability)을 나타낼 수도 있습니다." 라고 했었습니다
+
+그럼 setupDoneButton()은 모오오오든 플랫폼에서 unavailable 하다는 뜻입니다
 
 ### 참고: https://zeddios.tistory.com/647
