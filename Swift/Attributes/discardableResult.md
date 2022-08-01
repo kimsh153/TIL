@@ -21,3 +21,5 @@
 <img width="453" alt="스크린샷 2022-07-22 오후 9 13 38" src="https://user-images.githubusercontent.com/81547954/180436912-1d5d16e7-1343-475f-b9e2-32ed9bfba8b3.png">
 
 이런식으로 경고 메세지가 사진것을 보실 수 있습니다!
+
+### 참고: https://ios-development.tistory.com/343
