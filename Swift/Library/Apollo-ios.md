@@ -14,4 +14,9 @@
 pod 'Apollo'
 ```
 
+API.swift 파일이 자동으로 생성되도록 세팅
+* .graphql 파일을 사용하여 API 코드를 생성
+* 빌드 프로세스의 일부로 코드 생성을 실행하려면 Comile source 전에 실행되는 빌드 단계가 필요
+
+
 ### 참고: https://ios-development.tistory.com/892
