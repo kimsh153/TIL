@@ -66,4 +66,34 @@ reversedNames = names.sorted(by: { (s1: String, s2: String) -> Bool in
 })
 ```
 
+### 후위 클로저(Trailing Closures)
+
+만약 함수의 마지막 인자로 클로저를 넣고 그 클로저가 길다면 후위 클로저를 사용할 수 있습니다
+
+```swift
+func exampleClosure(closure: () -> Void) {
+  // function body
+}
+```
+
+위 클로저의 인자 값 입력 부분과 반화 형 부분을 생략해 다음과 같이 표현할 수 있고
+
+```swift
+func exampleClosure(closure: {
+  // closure's body
+}
+```
+
+이것을 후위 클로저로 표현하면 아래와 같이 표현할 수 있습니다
+
+함수를 대괄호 ({,} ) 로 묶어 그 안에 처리할 내용을 적으면 됩니다
+
+모르고 사용하셨다면 이런 일반적인 전역함수 형태가 사실 클로저를 사용하고 있던 것이었습니다
+
+```swift
+func exampleClosure() {
+  // trailing closure's body
+}
+```
+
 ### 출처 : https://jusung.gitbook.io/the-swift-language-guide/language-guide/07-closures
